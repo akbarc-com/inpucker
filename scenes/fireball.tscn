@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://tg6jya4as77a"]
+
+[ext_resource type="Script" path="res://scripts/fireball.gd" id="1_tm5x7"]
+[ext_resource type="Texture2D" uid="uid://827gsptgrtac" path="res://assets/fireball.png" id="2_rkgln"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21c5a"]
+radius = 17.0
+height = 34.0
+
+[node name="Fireball" type="Node2D"]
+script = ExtResource("1_tm5x7")
+
+[node name="Fireball" type="Sprite2D" parent="."]
+position = Vector2(-3, -2)
+texture = ExtResource("2_rkgln")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="HurtboxCol" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(8, -2)
+shape = SubResource("CapsuleShape2D_21c5a")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

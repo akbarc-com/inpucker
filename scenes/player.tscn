@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1okecimap4v3"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_vp4uq"]
+[ext_resource type="Texture2D" uid="uid://dovi5v7snplxo" path="res://assets/player.png" id="2_dfcmi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sj86v"]
+radius = 21.0
+height = 56.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmd0c"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bf57d"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wesgf"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kykmx"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_vp4uq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_sj86v")
+
+[node name="Player" type="Sprite2D" parent="."]
+texture = ExtResource("2_dfcmi")
+
+[node name="Orb1" type="Sprite2D" parent="."]
+position = Vector2(-43, 0)
+
+[node name="Orb2" type="Sprite2D" parent="."]
+position = Vector2(0, -55)
+
+[node name="Orb3" type="Sprite2D" parent="."]
+position = Vector2(45, -1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -413.0
+offset_top = -30.0
+offset_right = -373.0
+offset_bottom = 10.0
+
+[node name="Spell1" type="Label" parent="Camera2D/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = 170.0
+offset_right = -99.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "spell 1"
+label_settings = SubResource("LabelSettings_pmd0c")
+horizontal_alignment = 2
+
+[node name="Spell2" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = -111.0
+offset_top = 237.0
+offset_right = -61.0
+offset_bottom = 260.0
+text = "spell 2"
+label_settings = SubResource("LabelSettings_bf57d")
+
+[node name="Spell3" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = -113.0
+offset_top = 261.0
+offset_right = -63.0
+offset_bottom = 284.0
+text = "spell 3"
+label_settings = SubResource("LabelSettings_wesgf")
+
+[node name="Spell4" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = -110.0
+offset_top = 285.0
+offset_right = -60.0
+offset_bottom = 308.0
+text = "spell 4"
+label_settings = SubResource("LabelSettings_kykmx")
